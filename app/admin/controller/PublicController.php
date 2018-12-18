@@ -6,7 +6,7 @@
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
-// | Author: 小夏 < 449134904@qq.com>
+// | Author: drkj < 18676619895@163.com >
 // +----------------------------------------------------------------------
 namespace app\admin\controller;
 
@@ -54,6 +54,7 @@ class PublicController extends AdminBaseController
      */
     public function doLogin()
     {
+
         if (hook_one('admin_custom_login_open')) {
             $this->error('您已经通过插件自定义后台登录！');
         }
@@ -87,7 +88,6 @@ class PublicController extends AdminBaseController
         }
 
         $result = Db::name('user')->where($where)->find();
-
         if (!empty($result) && $result['user_type'] == 1) {
             if (cmf_compare_password($pass, $result['user_pass'])) {
                 $groups = Db::name('RoleUser')
