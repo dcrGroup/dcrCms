@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:37:"themes/simpleboot3/portal\\index.html";i:1544572556;s:75:"E:\PHPTutorial\WWW\html\ThinkCMF\public\themes\simpleboot3\public\head.html";i:1544572556;s:79:"E:\PHPTutorial\WWW\html\ThinkCMF\public\themes\simpleboot3\public\function.html";i:1544572556;s:74:"E:\PHPTutorial\WWW\html\ThinkCMF\public\themes\simpleboot3\public\nav.html";i:1544572556;s:77:"E:\PHPTutorial\WWW\html\ThinkCMF\public\themes\simpleboot3\public\footer.html";i:1544572556;s:78:"E:\PHPTutorial\WWW\html\ThinkCMF\public\themes\simpleboot3\public\scripts.html";i:1544572556;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:37:"themes/simpleboot3/portal\\index.html";i:1544572556;s:77:"E:\phpStudy\PHPTutorial\WWW\dcrCms\public\themes\simpleboot3\public\head.html";i:1544572556;s:81:"E:\phpStudy\PHPTutorial\WWW\dcrCms\public\themes\simpleboot3\public\function.html";i:1544572556;s:76:"E:\phpStudy\PHPTutorial\WWW\dcrCms\public\themes\simpleboot3\public\nav.html";i:1544572556;s:79:"E:\phpStudy\PHPTutorial\WWW\dcrCms\public\themes\simpleboot3\public\footer.html";i:1544572556;s:80:"E:\phpStudy\PHPTutorial\WWW\dcrCms\public\themes\simpleboot3\public\scripts.html";i:1544572556;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,7 +123,7 @@ function _sp_helloworld3(){
 
     </style>
     <?php 
-    \think\Hook::listen('before_head_end',$temp5c185200769a3,null,false);
+    \think\Hook::listen('before_head_end',$temp5c186ba63b874,null,false);
  ?>
 </head>
 <body class="body-white">
@@ -144,8 +144,8 @@ function _sp_helloworld3(){
             <ul id="main-menu" class="nav navbar-nav">
                 <?php
 
-function __parse_navigationfb84bc179fc64c65175a085e0c96eb82($menus,$level=1){
-$_parse_navigation_func_name = '__parse_navigationfb84bc179fc64c65175a085e0c96eb82';
+function __parse_navigation90a696adbb5f79bb47fc24b59fd04e76($menus,$level=1){
+$_parse_navigation_func_name = '__parse_navigation90a696adbb5f79bb47fc24b59fd04e76';
 if(is_array($menus) || $menus instanceof \think\Collection || $menus instanceof \think\Paginator): if( count($menus)==0 ) : echo "" ;else: foreach($menus as $key=>$menu): if(empty($menu['children'])): if($level > 1): ?>
                             <li class="menu-item menu-item-level-<?php echo $level; ?> levelgt1">
                                 <a href="<?php echo (isset($menu['href']) && ($menu['href'] !== '')?$menu['href']:''); ?>" target="<?php echo (isset($menu['target']) && ($menu['target'] !== '')?$menu['target']:''); ?>">
@@ -174,12 +174,13 @@ if(is_array($menus) || $menus instanceof \think\Collection || $menus instanceof 
     </li>
 <?php endif; endforeach; endif; else: echo "" ;endif; 
 }
+
     $navMenuModel = new \app\admin\model\NavMenuModel();
     $menus = $navMenuModel->navMenusTreeArray('',0);
 if(''==''): ?>
-    <?php echo __parse_navigationfb84bc179fc64c65175a085e0c96eb82($menus); else: ?>
+    <?php echo __parse_navigation90a696adbb5f79bb47fc24b59fd04e76($menus); else: ?>
     < id="main-navigation" class="nav navbar-nav navbar-nav-custom">
-        <?php echo __parse_navigationfb84bc179fc64c65175a085e0c96eb82($menus); ?>
+        <?php echo __parse_navigation90a696adbb5f79bb47fc24b59fd04e76($menus); ?>
     </>
 <?php endif; ?>
 
@@ -232,7 +233,8 @@ if(''==''): ?>
 <ul id="home-slider" class="list-unstyled">
     <?php 
         $top_slide_id=empty($theme_vars['top_slide'])?1:$theme_vars['top_slide'];
-          $__SLIDE_ITEMS__ = \app\admin\service\ApiService::slides($top_slide_id);
+     
+     $__SLIDE_ITEMS__ = \app\admin\service\ApiService::slides($top_slide_id);
 if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection || $__SLIDE_ITEMS__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__SLIDE_ITEMS__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
 
         <li>
@@ -242,7 +244,8 @@ if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection |
             <a href="<?php echo (isset($vo['url']) && ($vo['url'] !== '')?$vo['url']:''); ?>"><img src="<?php echo cmf_get_image_url($vo['image']); ?>" alt=""></a>
         </li>
     
-<?php endforeach; endif; else: echo "" ;endif;     if(!isset($__SLIDE_ITEMS__)){
+<?php endforeach; endif; else: echo "" ;endif; 
+    if(!isset($__SLIDE_ITEMS__)){
         $__SLIDE_ITEMS__ = \app\admin\service\ApiService::slides($top_slide_id);
     }
 if(count($__SLIDE_ITEMS__) == 0): ?>
@@ -283,7 +286,7 @@ if(count($__SLIDE_ITEMS__) == 0): ?>
         <?php 
             $features_count = count($widget['vars']['features']);
             $rows = ceil($features_count/3);
-         $__FOR_START_13100__=1;$__FOR_END_13100__=$rows;for($row=$__FOR_START_13100__;$row <= $__FOR_END_13100__;$row+=1){ 
+         $__FOR_START_2833__=1;$__FOR_END_2833__=$rows;for($row=$__FOR_START_2833__;$row <= $__FOR_END_2833__;$row+=1){ 
                 $first_row = ($row-1)*3;
                 $features = array_slice($widget['vars']['features'],$first_row,3);
              ?>
@@ -295,8 +298,10 @@ if(count($__SLIDE_ITEMS__) == 0): ?>
                     </div>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
             </div>
-        <?php }     }
-      if(isset($theme_widgets['last_news']) && $theme_widgets['last_news']['display']){
+        <?php } 
+    }
+ 
+     if(isset($theme_widgets['last_news']) && $theme_widgets['last_news']['display']){
         $widget=$theme_widgets['last_news'];
      
  ?>
@@ -309,7 +314,8 @@ if(count($__SLIDE_ITEMS__) == 0): ?>
             <?php 
                 $widget["vars"]["last_news_category_id"] = empty($widget["vars"]["last_news_category_id"])?1:$widget["vars"]["last_news_category_id"];
                 $last_news_limit=4;
-             $articles_data = \app\portal\service\ApiService::articles([
+             
+$articles_data = \app\portal\service\ApiService::articles([
     'field'   => '',
     'where'   => "",
     'limit'   => $last_news_limit,
@@ -369,7 +375,7 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
 <hr>
 <div id="footer">
     <?php 
-    \think\Hook::listen('footer_start',$temp5c185200769a3,null,false);
+    \think\Hook::listen('footer_start',$temp5c186ba63b874,null,false);
  ?>
     <div class="links">
         <?php
@@ -500,7 +506,7 @@ if(is_array($__LINKS__) || $__LINKS__ instanceof \think\Collection || $__LINKS__
     });
 </script>
 <?php 
-    \think\Hook::listen('before_body_end',$temp5c185200769a3,null,false);
+    \think\Hook::listen('before_body_end',$temp5c186ba63b874,null,false);
  ?>
 </body>
 </html>
