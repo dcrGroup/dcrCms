@@ -20,6 +20,6 @@ return [
     'charset'  => 'utf8mb4',
     // 数据库表前缀
     'prefix'   => 'dcr_',
-    "authcode" => 'Va7pqBtzTbHYgLXLwO',
+    "authcode" => 'JHpxldQWER7XIvRzCc',
     //#COOKIE_PREFIX#
 ];
